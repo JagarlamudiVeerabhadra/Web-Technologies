@@ -1,0 +1,85 @@
+/* ----------- Page Layout ----------- */
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f9fabb;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+/* ----------- Headings ----------- */
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+.para-anc{
+    text-align: center;
+    color: #333;
+}
+
+/* ----------- Buttons ----------- */
+button {
+    padding: 10px 20px;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+/* Register + Cancel specific colors */
+#registerBtn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#cancelBtn {
+    background-color: #d9534f;
+    color: white;
+}
+
+/* Button hover effect */
+/* button:hover {
+    opacity: 0.9;
+} */
+
+/* ----------- Form Styles ----------- */
+form {
+    width: 350px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #aaa;
+}
+
+label {
+    font-weight: bold;
+    color: #444;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* ----------- Home page button ----------- */
+.home-button {
+    display: block;
+    width: 200px;
+    margin: 40px auto;
+    padding: 12px;
+    text-align: center;
+    background: #0066ff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* .home-button:hover {
+    background: #0056b3;
+} */
