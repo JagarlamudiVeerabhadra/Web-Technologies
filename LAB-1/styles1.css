@@ -1,0 +1,64 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.product-card {
+    background-color: #ffffff;
+    width: 320px;
+    border: 1px solid #ddd;          /* Border */
+    border-radius: 10px;
+    padding: 20px;                    /* Padding */
+    margin: 20px;                     /* Margin */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);  /* Box shadow */
+    text-align: center;
+}
+
+.product-image {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.product-title {
+    font-size: 1.4rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+.product-description {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2c7a2c;
+    margin-bottom: 20px;
+}
+
+.buy-button {
+    background-color: #ff6b35;       /* Button color */
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect */
+.buy-button:hover {
+    background-color: #e65b28;       /* Darker on hover */
+    transform: translateY(-2px);     /* Slight lift on hover */
+}
