@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LocalStorage User Management System</title>
+    <link rel="stylesheet" href="userStyle.css">
+</head>
+<body>
+
+    <h1>User Registration & Management System</h1>
+
+    <form id="registerForm" onsubmit="registerUser(event)">
+        <input type="text" id="name" placeholder="Name">
+        <input type="email" id="email" placeholder="Email">
+        <input type="text" id="mobile" placeholder="Mobile Number">
+        <input type="password" id="password" placeholder="Password">
+        <button type="submit">Register</button>
+    </form>
+
+    <h2>Registered Users</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Password</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="userTable"></tbody>
+    </table>
+
+    <button class="clear-btn" onclick="clearAllUsers()">Clear All Users</button>
+
+    <script src="userScript.js"></script>
+</body>
+</html>

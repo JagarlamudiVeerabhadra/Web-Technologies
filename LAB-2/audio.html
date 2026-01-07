@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 Audio and Video Players</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            max-width: 1000px;
+            margin: 20px auto;
+        }
+
+        .media-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 45%;
+        }
+
+        h2 {
+            color: #0056b3;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .time-display {
+            margin-top: 15px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #d9534f;
+            padding: 8px;
+            background-color: #ffeaea;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Multimedia Web Page </h1>
+    
+    <div class="container">
+        
+        <div class="media-section">
+            
+            <h2>🎵 Audio Player</h2>
+
+            <audio id="myAudio" controls>
+                <source src="https://samplelib.com/lib/preview/mp3/sample-15s.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+
+            <div class="time-display" id="audioTime">
+                Current Time: 0:00
+            </div>
+        </div>
+
+        <div class="media-section">
+            
+            <h2>🎬 Video Player</h2>
+            
+            <video id="myVideo" width="400" height="225" controls>
+                <source src="https://cdn.pixabay.com/video/2025/11/29/318885_large.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <div class="time-display" id="videoTime">
+                Current Time: 0:00
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        // --- JavaScript for Dynamic Time Display ---
+
+        // 1. Get references to the media elements and time display elements
+        const audioPlayer = document.getElementById('myAudio');
+        const videoPlayer = document.getElementById('myVideo');
+        const audioTimeDisplay = document.getElementById('audioTime');
+        const videoTimeDisplay = document.getElementById('videoTime');
+
+        /**
+         * Helper function to convert seconds into an M:SS time format.
+         * @param {number} totalSeconds - The time in seconds.
+         * @returns {string} The formatted time string (M:SS).
+         */
+        function formatTime(totalSeconds) {
+            // Use Math.floor to get whole numbers
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = Math.floor(totalSeconds % 60);
+            // Pad seconds with a leading zero if less than 10
+            const formattedSeconds = String(seconds).padStart(2, '0');
+            return `${minutes}:${formattedSeconds}`;
+        }
+
+        /**
+         * Function to update the time display for a given player.
+         * @param {HTMLMediaElement} player - The audio or video player element.
+         * @param {HTMLElement} displayElement - The div element to update.
+         */
+        function updateTimeDisplay(player, displayElement) {
+            const currentTime = player.currentTime;
+            displayElement.textContent = `Current Time: ${formatTime(currentTime)}`;
+        }
+
+        // 2. Attach the 'timeupdate' event listener to both players
+        // The timeupdate event fires regularly while the media is playing.
+        
+        audioPlayer.addEventListener('timeupdate', () => {
+            updateTimeDisplay(audioPlayer, audioTimeDisplay);
+        });
+
+        videoPlayer.addEventListener('timeupdate', () => {
+            updateTimeDisplay(videoPlayer, videoTimeDisplay);
+        });
+
+        // 3. (Optional) Initialize the display when the media is loaded
+        audioPlayer.addEventListener('loadedmetadata', () => {
+             updateTimeDisplay(audioPlayer, audioTimeDisplay);
+        });
+
+        videoPlayer.addEventListener('loadedmetadata', () => {
+             updateTimeDisplay(videoPlayer, videoTimeDisplay);
+        });
+
+    </script>
+
+</body>
+</html>

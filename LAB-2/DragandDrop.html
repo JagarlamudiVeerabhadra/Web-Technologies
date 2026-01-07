@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced Drag and Drop Task Manager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .task-input {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            width: 250px;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .board {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .column {
+            background-color: #ffffff;
+            width: 32%;
+            min-height: 300px;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        .column h2 {
+            text-align: center;
+        }
+
+        .task {
+            background-color: #e3e7ff;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 6px;
+            cursor: grab;
+        }
+
+        .task small {
+            display: block;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        .completed {
+            background-color: #898d95 !important;
+        }
+
+        .message {
+            text-align: center;
+            color: green;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Advanced Drag & Drop Task Manager</h1>
+
+<div class="task-input">
+    <input type="text" id="taskInput" placeholder="Enter task name">
+    <button onclick="addTask()">Add Task</button>
+</div>
+
+<div class="board">
+    <div class="column" id="todo" ondragover="allowDrop(event)" ondrop="drop(event)">
+        <h2>To Do</h2>
+    </div>
+
+    <div class="column" id="inprogress" ondragover="allowDrop(event)" ondrop="drop(event)">
+        <h2>In Progress</h2>
+    </div>
+
+    <div class="column" id="completed" ondragover="allowDrop(event)" ondrop="drop(event)">
+        <h2>Completed</h2>
+    </div>
+</div>
+
+<div class="message" id="message"></div>
+
+<script>
+    let taskId = 0;
+
+    function addTask() {
+        const taskName = document.getElementById("taskInput").value;
+        if (taskName === "") {
+            alert("Please enter a task name");
+            return;
+        }
+
+        const task = document.createElement("div");
+        task.className = "task";
+        task.draggable = true;
+        task.id = "task-" + taskId++;
+        task.ondragstart = drag;
+
+        const date = new Date().toLocaleDateString();
+
+        task.innerHTML = `
+            <strong>${taskName}</strong>
+            <small>Created on: ${date}</small>
+        `;
+
+        document.getElementById("todo").appendChild(task);
+        document.getElementById("taskInput").value = "";
+    }
+
+    function drag(event) {
+        event.dataTransfer.setData("text", event.target.id);
+    }
+
+    function allowDrop(event) {
+        event.preventDefault();
+    }
+
+    function drop(event) {
+        event.preventDefault();
+        const taskId = event.dataTransfer.getData("text");
+        const task = document.getElementById(taskId);
+
+        if (event.currentTarget.id === "completed") {
+            task.classList.add("completed");
+            document.getElementById("message").innerText =
+                "Task Completed Successfully";
+        } else {
+            task.classList.remove("completed");
+            document.getElementById("message").innerText = "";
+        }
+
+        event.currentTarget.appendChild(task);
+    }
+</script>
+
+</body>
+</html>
