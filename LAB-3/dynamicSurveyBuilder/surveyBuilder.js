@@ -274,3 +274,4 @@ class DynamicSurveyBuilder {
 document.addEventListener('DOMContentLoaded', () => {
     window.surveyBuilder = new DynamicSurveyBuilder();
 });
+
