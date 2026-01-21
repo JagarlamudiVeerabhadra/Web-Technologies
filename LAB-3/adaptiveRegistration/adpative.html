@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaptive Registration System</title>
+    <style>
+        .form-container { max-width: 500px; margin: 50px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        .error { border-color: #e74c3c !important; background-color: #fdf2f2; }
+        .valid { border-color: #27ae60 !important; background-color: #f2fdf2; }
+        .error-message { color: #e74c3c; font-size: 0.9em; margin-top: 5px; display: none; }
+        .error-message.show { display: block; }
+        .hidden { display: none; }
+        button { background: #3498db; color: white; padding: 12px 30px; border: none; border-radius: 4px; cursor: pointer; width: 100%; font-size: 16px; }
+        button:disabled { background: #bdc3c7; cursor: not-allowed; }
+        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+        .skill-checkbox { margin: 0; width: auto; }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Adaptive Registration Form</h2>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required>
+                <div class="error-message" id="nameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+                <div class="error-message" id="emailError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password *</label>
+                <input type="password" id="password" name="password" required>
+                <div class="error-message" id="passwordError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password *</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <div class="error-message" id="confirmPasswordError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age *</label>
+                <input type="number" id="age" name="age" min="13" max="100" required>
+                <div class="error-message" id="ageError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="role">Role *</label>
+                <select id="role" name="role" required>
+                    <option value="">Select Role</option>
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="admin">Admin</option>
+                </select>
+                <div class="error-message" id="roleError"></div>
+            </div>
+
+            <div class="form-group hidden" id="skillsGroup">
+                <label>Skills (select at least one)</label>
+                <div class="skills-container" id="skillsContainer">
+                    <label><input type="checkbox" class="skill-checkbox" name="skills" value="javascript"> JavaScript</label>
+                    <label><input type="checkbox" class="skill-checkbox" name="skills" value="python"> Python</label>
+                    <label><input type="checkbox" class="skill-checkbox" name="skills" value="java"> Java</label>
+                    <label><input type="checkbox" class="skill-checkbox" name="skills" value="sql"> SQL</label>
+                    <label><input type="checkbox" class="skill-checkbox" name="skills" value="react"> React</label>
+                </div>
+                <div class="error-message" id="skillsError"></div>
+            </div>
+
+            <button type="submit" id="submitBtn" disabled>Register</button>
+        </form>
+    </div>
+
+    <script src="adpative.js"></script>
+</body>
+</html>

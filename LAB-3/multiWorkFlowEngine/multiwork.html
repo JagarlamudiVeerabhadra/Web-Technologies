@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Multi-Step Form</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 480px;
+      margin: 20px auto;
+    }
+
+    .step {
+      display: none;
+    }
+
+    .step.active {
+      display: block;
+    }
+
+    #progress {
+      width: 100%;
+      background: #eee;
+      height: 8px;
+      margin-bottom: 16px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    #progressBar {
+      width: 0;
+      height: 100%;
+      background: #4caf50;
+      transition: width 0.3s ease;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.8rem;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    label {
+      display: block;
+      margin: 8px 0 4px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 6px;
+      box-sizing: border-box;
+    }
+
+    .buttons {
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    button {
+      padding: 8px 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<form id="multiStepForm" novalidate>
+  <!-- Progress bar -->
+  <div id="progress">
+    <div id="progressBar"></div>
+  </div>
+
+  <!-- Step 1: Basic info -->
+  <div class="step" data-step="1">
+    <h2>Step 1: Basic Info</h2>
+
+    <label for="name">Name</label>
+    <input type="text" id="name">
+    <span class="error" id="nameError"></span>
+
+    <label for="email">Email</label>
+    <input type="email" id="email">
+    <span class="error" id="emailError"></span>
+
+    <div class="buttons">
+      <span></span>
+      <button type="button" id="next1">Next</button>
+    </div>
+  </div>
+
+  <!-- Step 2: Address -->
+  <div class="step" data-step="2">
+    <h2>Step 2: Address</h2>
+
+    <label for="street">Street</label>
+    <input type="text" id="street">
+    <span class="error" id="streetError"></span>
+
+    <label for="city">City</label>
+    <input type="text" id="city">
+    <span class="error" id="cityError"></span>
+
+    <div class="buttons">
+      <button type="button" id="prev2">Previous</button>
+      <button type="button" id="next2">Next</button>
+    </div>
+  </div>
+
+  <!-- Step 3: Account -->
+  <div class="step" data-step="3">
+    <h2>Step 3: Account</h2>
+
+    <label for="password">Password</label>
+    <input type="password" id="password">
+    <span class="error" id="passwordError"></span>
+
+    <label for="confirmPassword">Confirm Password</label>
+    <input type="password" id="confirmPassword">
+    <span class="error" id="confirmPasswordError"></span>
+
+    <div class="buttons">
+      <button type="button" id="prev3">Previous</button>
+      <button type="button" id="next3">Next</button>
+    </div>
+  </div>
+
+  <!-- Step 4: Terms -->
+  <div class="step" data-step="4">
+    <h2>Step 4: Terms</h2>
+
+    <label>
+      <input type="checkbox" id="agree"> I agree to the terms
+    </label>
+    <span class="error" id="agreeError"></span>
+
+    <div class="buttons">
+      <button type="button" id="prev4">Previous</button>
+      <button type="submit" id="submitBtn">Submit</button>
+    </div>
+  </div>
+</form>
+
+<script src="multiworkflow.js"></script>
+</body>
+</html>
