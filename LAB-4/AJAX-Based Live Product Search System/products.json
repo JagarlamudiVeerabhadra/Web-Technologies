@@ -1,0 +1,10 @@
+{
+  "products": [
+    { "name": "iPhone 14", "price": 799, "category": "Electronics" },
+    { "name": "Samsung Galaxy S23", "price": 750, "category": "Electronics" },
+    { "name": "Nike Running Shoes", "price": 120, "category": "Footwear" },
+    { "name": "Wooden Dining Table", "price": 450, "category": "Furniture" },
+    { "name": "Dell Laptop", "price": 900, "category": "Electronics" },
+    { "name": "Office Chair", "price": 150, "category": "Furniture" }
+  ]
+}
