@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Record System</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        table, th, td { border: 1px solid black; padding: 8px; }
+        th { background-color: #f2f2f2; }
+        input { margin: 5px; }
+        button { margin: 5px; }
+        #message { margin-top: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<h2>Student Record System (JSON + Fetch)</h2>
+
+<h3>Add / Update Student</h3>
+<input type="number" id="stuId" placeholder="Student ID">
+<input type="text" id="stuName" placeholder="Name">
+<input type="text" id="stuCourse" placeholder="Course">
+<input type="number" id="stuMarks" placeholder="Marks">
+
+<button onclick="addStudent()">Add</button>
+<button onclick="updateStudent()">Update</button>
+<button onclick="deleteStudent()">Delete</button>
+
+<div id="message"></div>
+
+<h3>Student List</h3>
+<table id="studentTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Marks</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+    <book>
+        <id>1</id>
+        <title>The Alchemist</title>
+        <author>Paulo Coelho</author>
+        <status>Available</status>
+    </book>
+
+    <book>
+        <id>2</id>
+        <title>Wings of Fire</title>
+        <author>A.P.J. Abdul Kalam</author>
+        <status>Issued</status>
+    </book>
+</library>
