@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.static("public"));
 
-const uri = "mongodb://naveentanikonda577_db_user:Loki%40vit123@ac-hsshkwb-shard-00-00.eb094kr.mongodb.net:27017,ac-hsshkwb-shard-00-01.eb094kr.mongodb.net:27017,ac-hsshkwb-shard-00-02.eb094kr.mongodb.net:27017/?ssl=true&replicaSet=atlas-kklgax-shard-0&authSource=admin";
+const uri = "mongodb://veerabhadrajagarlamudi2005:Bhadra2005@ac-0ljdlae-shard-00-00.por5yzf.mongodb.net:27017,ac-0ljdlae-shard-00-01.por5yzf.mongodb.net:27017,ac-0ljdlae-shard-00-02.por5yzf.mongodb.net:27017/?ssl=true&replicaSet=atlas-iijdrb-shard-0&authSource=admin";
 const client = new MongoClient(uri);
 
 let db;
