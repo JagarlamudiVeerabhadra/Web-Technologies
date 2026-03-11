@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Notes Manager</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 40px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        .note {
+            background: #fafafa;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 6px;
+        }
+
+        .note h3 {
+            margin: 0;
+            color: #222;
+        }
+
+        .note p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .delete-btn {
+            background: #e74c3c;
+            margin-top: 8px;
+        }
+
+        .delete-btn:hover {
+            background: #c0392b;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Add Note</h2>
+
+        <input id="title" placeholder="Title">
+        <input id="subject" placeholder="Subject">
+        <input id="description" placeholder="Description">
+
+        <button onclick="addNote()">Add Note</button>
+
+        <h2>All Notes</h2>
+
+        <div id="notes"></div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
